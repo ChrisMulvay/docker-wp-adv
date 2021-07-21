@@ -35,18 +35,18 @@ This means that each service will be accessible from every other container throu
 
 Open the *docker-compose.yml* file and add:
 
-`
+'
 version: '3.9'
 
 services:
-`
+'
 
 - Version: 3.9, the newest version of the Docker Compose engine, not super useful but opens us up to newer syntax goodies.
 - Services: Where we’ll specify the images that’ll make up our stack.
 
 ### Add Nginx
 
-`
+'
 
 nginx:
   build:
@@ -60,19 +60,19 @@ nginx:
     - php
     - mysql
 
-`
+'
 
 #### nginx.dockerfile
 
-`
+'
 FROM nginx:stable-alpine
 
 AND ./nginx/default.conf /etc/nginx/conf.d/default.conf
-`
+'
 
 #### nginx/default.conf
 
-`
+'
 upstream php {
     server unix:/tmp/php-cgi.socket;
     server php:9000;
@@ -101,14 +101,13 @@ server {
         log_not_found off;
     }
 }
-`
+'
 
 ### Add MySQL
 
 In our docker-compose.yml file add the following:
 
-`
-
+'
 mysql:
   image: mysql:latest
   restart: always
@@ -119,26 +118,24 @@ mysql:
     MYSQL_USER: wp
     MYSQL_PASSWORD: secret
     MYSQL_ROOT_PASSWORD: secret
-`
+'
 
 ### Add PHP
 
 Add the following to the bottom of our docker-compose.yml file:
 
-`
-
+'
 php:
   build:
     context: .
     dockerfile: php.dockerfile
   volumes:
     - ./wordpress:/var/www/html
-
-`
+'
 
 #### php.dockerfile
 
-`
+'
 FROM php:7.4-fpm-alpine
 
 ADD ./php/www.conf /usr/local/etc/php-fpm.d/www.conf
@@ -153,14 +150,13 @@ WORKDIR /var/www/html
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable pdo_mysql
 
-`
+'
 
 #### Starting Docker
 
-`
+'
  docker-compose up --build
-
- `
+'
 
 ### Adding WP-CLI to docker-compose.yml
 
