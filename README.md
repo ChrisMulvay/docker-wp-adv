@@ -6,13 +6,13 @@
 ## Create a folder structure
 
 my-website-folder
--- nginx/
---- default.conf
--- wordpress/
---- (WordPress Source Files)
-- docker-compose.yml
-- nginx.dockerfile
-- php.dockerfile
+ nginx/
+  default.conf
+ wordpress/
+  (WordPress Source Files)
+ docker-compose.yml
+ nginx.dockerfile
+ php.dockerfile
 
 **Note** : Downloand and install WordPress into the wordpress/ in the above structure.
 
