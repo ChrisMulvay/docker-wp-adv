@@ -2,21 +2,22 @@
 
 ## Introduction
 
-All the information found within this document come from a great article by titled **Build a solid WordPress dev environment with Docker**
+All the information found within this document come from a great article by titled:
+**Build a solid WordPress dev environment with Docker**
 **URL**: <https://aschmelyun.com/blog/build-a-solid-wordpress-dev-environment-with-docker/>
 
-## Create a folder structure
+## Create a directory structure
 
-my-website-folder
-nginx/
-default.conf
-wordpress/
-(WordPress Source Files)
-docker-compose.yml
-nginx.dockerfile
-php.dockerfile
+    my-website-folder
+        nginx/
+            default.conf
+        wordpress/
+            (WordPress Source Files)
+        docker-compose.yml
+        nginx.dockerfile
+        php.dockerfile
 
-**Note**: _Downloand and install WordPress into the wordpress/ in the above structure._
+**Note**: _Downloand and install WordPress into the *wordpress/* directory in the above structure._
 
 ## Creating Our Stack
 
